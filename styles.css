@@ -1,0 +1,212 @@
+.text-rotate {
+  transform-origin: left;
+  font-size: 4rem;
+  color: black;
+  position: absolute;
+  top: calc(50% - 0.5em); /* Centers vertically */
+  left: -175%; /* Centers horizontally if needed */
+  transform: rotate(-90deg); /* Rotates the text to face upwards */
+  transform-origin: center; /* Ensures it rotates around its center */
+  text-align: center;
+  text-wrap: nowrap;
+  text-transform: uppercase;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+}
+
+.frame-container {
+  display: flex;
+  flex-direction: row; /* Arrange frames horizontally */
+  align-items: center; /* Align all frames to the horizontal center */
+  gap: 10px; /* Small gaps between frames */
+  position: relative;
+}
+
+.frame {
+  background: url('./img/abs-3.jpeg') no-repeat center;
+  background-size: 500% 100%; /* Prevent distortion and divide horizontally */
+  border: 3px solid #fff; /* Frame border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Frame 1: Smallest */
+.frame1 {
+  width: 80px;  /* Narrow */
+  height: 200px; /* Shortest */
+  background-position: 0 50%; /* Adjusted for vertical centering */
+}
+
+/* Frame 2: Medium */
+.frame2 {
+  width: 120px; /* Wider than Frame 1 */
+  height: 300px; /* Taller than Frame 1 */
+  background-position: 20% 50%; /* Adjusted for vertical centering */
+}
+
+/* Frame 3: Largest */
+.frame3 {
+  width: 200px; /* Widest */
+  height: 400px; /* Tallest */
+  background-position: 50% 50%; /* Adjusted for vertical centering */
+}
+
+/* Frame 4: Medium */
+.frame4 {
+  width: 120px; /* Same size as Frame 2 */
+  height: 300px; /* Same size as Frame 2 */
+  background-position: 75% 50%; /* Adjusted for vertical centering */
+}
+
+/* Frame 5: Smallest */
+.frame5 {
+  width: 80px;  /* Same size as Frame 1 */
+  height: 200px; /* Same size as Frame 1 */
+  background-position: 100% 50%; /* Adjusted for vertical centering */
+}
+
+img {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  transform: translate(-50%, -50%)
+}
+
+.rotate {
+  border-radius: 50%;
+  width: 400px;
+  position: absolute;
+  height: 400px;
+  border: 5px solid red;
+  top: 100%;
+  
+  img:nth-child(1) {
+    top: 0%;
+    left: -90%;
+    transform: translate(-50%, -50%);
+    transform: rotate(-90deg);
+  }
+
+  img:nth-child(2) {
+    top: -50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    
+  }
+
+  img:nth-child(3) {
+    top: 0%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    transform: rotate(90deg);
+  }
+
+  img:nth-child(4) {
+    top: 101%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    transform: rotate(180deg);
+  }
+}
+
+p{
+  position: fixed;
+  width: 30%;
+  bottom: 5%;
+  color: #fff
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  background-color: #151515;
+  margin: 0 10px;
+  border-radius: 50%;
+  transition: .5s;
+  box-shadow: 0 0 15px#7a7a7a;
+  position: relative;
+}
+
+ul li:hover {
+  background-color: #757575;
+}
+
+ul li span {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #fff;
+  transition: .5s;
+}
+
+ul li.next:hover span {
+  right: 16px;
+}
+
+ul li.next span {
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%) rotate(-45deg);
+  border-left: none;
+  border-top: none;
+}
+
+ul li.next span:before {
+  content: '';
+  position: absolute;
+  width: 38px;
+  height: 4px;
+  background: #fff;
+  transform-origin: right;
+  transform: rotate(45deg) translate(0px, 25px) scale(0);
+  transition: .5s
+}
+
+ul li.next:hover span:before {
+  transform: rotate(45deg) translate(0px, 25px) scale(1);
+
+}
+
+ul li.prev:hover span {
+  left: 16px;
+}
+
+ul li.prev span {
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%) rotate(-45deg);
+  border-right: none;
+  border-bottom: none;
+}
+
+ul li.prev span:before {
+  content: '';
+  position: absolute;
+  width: 38px;
+  height: 4px;
+  background: #fff;
+  transform-origin: left;
+  transform: rotate(45deg) translate(-2px, -1.5px) scale(0);
+  transition: .5s
+}
+
+ul li.prev:hover span:before {
+  transform: rotate(45deg) translate(-2px, -1.5px) scale(1);
+}
